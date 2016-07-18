@@ -1,0 +1,30 @@
+<h1>Product Inventory Control</h1>
+
+<p>
+	<%= link_to "View All Products", all_products_path %>
+</p>
+
+<p>Create new products below!</p>
+
+<% if @notice != nil %>
+	<p>
+		<%= @notice %>
+	</p>
+<% end %>
+
+<%= form_tag(index_path) do %>
+	<p>
+		<%= text_field_tag :name, nil, placeholder: "Product Name" %>
+	</p>
+	<p>
+		<%= text_field_tag :category, nil, placeholder: "Category" %>
+	</p>
+	<p>
+		<%= number_field_tag :price, nil, step: 'any', placeholder: "Price" %>
+	</p>
+	<p>
+		<%= submit_tag "Create It" %>
+	</p>
+<% end %>
+
+

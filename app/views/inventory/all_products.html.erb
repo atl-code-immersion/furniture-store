@@ -1,0 +1,16 @@
+<h1>Listing All Products</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Category</th>
+	</tr>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= link_to product.name, show_path(id: product.id) %></td>
+			<td><%= number_to_currency product.price %></td>
+			<td><%= link_to product.category, categorical_path(cat: product.category) %></td>
+		</tr>
+	<% end %>
+</table>

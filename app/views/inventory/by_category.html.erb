@@ -1,0 +1,14 @@
+<h1>Listing Our <%= @products[0].category %> Products</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+	</tr>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= link_to product.name, show_path(id: product.id) %></td>
+			<td><%= number_to_currency product.price %></td>
+		</tr>
+	<% end %>
+</table>
