@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'all_states' => 'country#all_states'
+  post 'all_states' => 'country#all_states'
+
+  get 'top_pop' => 'country#top_pop'
+
+  get 'top_area' => 'country#top_area'
+
   root 'inventory#index'
   post 'index' => 'inventory#index'
 

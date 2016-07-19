@@ -1,0 +1,45 @@
+<h2>Create a New State</h2>
+
+<div>
+	<%= form_tag(all_states_path) do %>
+		<p>
+			<%= text_field_tag :name, nil, placeholder: "State Name" %>
+		</p>
+		<p>
+			<%= text_field_tag :capital, nil, placeholder: "Capital City" %>
+		</p>
+		<p>
+			<%= number_field_tag :population, nil, placeholder: "Population" %>
+		</p>
+		<p>
+			<%= number_field_tag :area, nil, placeholder: "Area (sq. miles)" %>
+		</p>
+		<p>
+			<%= submit_tag "Create It" %>
+		</p>
+	<% end %>
+
+</div>
+
+
+<h2>Listing All States</h2>
+<p>
+	<%= link_to "Top 5: Population", top_pop_path %> | <%= link_to "Top 5: Area", top_area_path %>
+</p>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Capital</th>
+		<th>Population</th>
+		<th>Area</th>
+	</tr>
+	<% @states.each do |state| %>
+		<tr>
+			<td><%= state.name %></td>
+			<td><%= state.capital %></td>
+			<td><%= number_with_delimiter(state.population) %></td>
+			<td><%= number_with_delimiter(state.area) %> mi&sup2;</td>
+		</tr>
+	<% end %>
+</table>
